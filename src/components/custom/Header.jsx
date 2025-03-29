@@ -80,7 +80,7 @@ function Header() {
           <div className="flex items-center gap-3">
             <a href='/my-trips'>
             <Button variant="outline" className="rounded-full hover:scale-105 transition-all duration-300">
-              My Trips
+              My Roadmaps
             </Button>
             </a>
             <Popover>

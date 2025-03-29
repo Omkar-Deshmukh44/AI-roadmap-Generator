@@ -1,19 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Card({ trip }) {
-
+function Card({ roadmap }) {
     return (
-        <Link to = {'/view-trip/'+trip?.id}>
-            <div className='hover:scale-105 hover:opacity-[70%] transition-all mt-4'>
-                <img className="object-cover rounded-xl" src='https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
-                <div>
-                    <h2 className='font-bold text-lg'>{trip?.userSelection?.location?.label}</h2>
-                    <h2 className='text-sm text-gray-600'>{trip?.userSelection?.noOfDays} Days of trip with {trip?.userSelection?.budget} budget</h2>
+        <Link to={`/view-roadmap/${roadmap?.id}`}>
+            <div className="hover:scale-105 hover:opacity-80 transition-all mt-4 bg-white shadow-lg rounded-xl overflow-hidden">
+                <img 
+                    className="w-full h-40 object-cover" 
+                    src={roadmap?.imageURL || 'https://img.freepik.com/free-vector/four-step-road-map-infographic-template-with-colorful-location-pointer_1017-54337.jpg?t=st=1743244571~exp=1743248171~hmac=db46ac680a08ace6c31386ed8c9381278cfbc07296185255f94f6ffc5c73c444&w=1480'} 
+                    alt={roadmap?.userSelection?.exam || "Exam Roadmap"}
+                />
+                <div className="p-4">
+                    <h2 className="font-bold text-lg text-gray-800">{roadmap?.userSelection?.exam}</h2>
+                    <p className="text-sm text-gray-600">For {roadmap?.userSelection?.monthsLeft} months of preparation</p>
                 </div>
             </div>
         </Link>
-    )
+    );
 }
 
-export default Card
+export default Card;
